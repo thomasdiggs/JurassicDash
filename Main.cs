@@ -6,6 +6,7 @@ global using Microsoft.Xna.Framework.Media;
 global using Microsoft.Xna.Framework.Content;
 global using System;
 global using System.Collections.Generic;
+global using System.Linq;
 
 namespace JurassicDash
 {
@@ -19,6 +20,8 @@ namespace JurassicDash
         private SpriteBatch _spriteBatch;
 
         private TRex _trex;
+        private const int TREX_START_POS_X = 5;
+        private const int TREX_START_POS_Y = SCREEN_HEIGHT - 15;
 
         public Main()
         {
@@ -43,7 +46,7 @@ namespace JurassicDash
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             AssetManager.LoadContent();
 
-            _trex = new TRex(AssetManager.SpriteSheetTRex, new Vector2(0, SCREEN_HEIGHT - 15));
+            _trex = new TRex(AssetManager.SpriteSheetTRex, new Vector2(TREX_START_POS_X, TREX_START_POS_Y));
             _entityManager.AddEntity(_trex);
         }
 
